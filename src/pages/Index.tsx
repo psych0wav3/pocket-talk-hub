@@ -1,12 +1,19 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { ChatApp } from "@/components/Chat/ChatApp";
+import { chatThemes } from "@/lib/chatThemes";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="h-screen">
+      <ChatApp 
+        apiEndpoint="https://seu-webhook-n8n.com/webhook/chat"
+        welcomeMessage="Olá! Sou seu assistente virtual. Como posso ajudá-lo hoje?"
+        errorMessage="Desculpe, não consegui processar sua mensagem. Tente novamente em alguns instantes."
+        theme={chatThemes.default}
+        headers={{
+          'Authorization': 'Bearer seu-token-aqui',
+          'X-Custom-Header': 'valor-personalizado'
+        }}
+      />
     </div>
   );
 };
